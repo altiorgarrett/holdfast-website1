@@ -96,4 +96,74 @@
   .field-grid { grid-template-columns: 1fr; }
   .provider-form-shell { padding: 24px 20px; }
   .provider-cta-inner { grid-template-columns: 1fr; }
+
+  /* Replace the desktop orbit graphic with a clean mobile grid. */
+  .network-visual {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    min-height: 0;
+    padding: 18px;
+  }
+  .network-visual::before,
+  .network-visual::after,
+  .network-link { display: none; }
+  .network-center {
+    animation: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    grid-column: 1 / -1;
+    height: auto;
+    left: auto;
+    padding: 18px;
+    position: static;
+    top: auto;
+    transform: none;
+    width: auto;
+  }
+  .network-node,
+  .node-one,
+  .node-two,
+  .node-three,
+  .node-four {
+    bottom: auto;
+    left: auto;
+    min-height: 88px;
+    padding: 14px 10px;
+    position: static;
+    right: auto;
+    top: auto;
+    width: auto;
+  }
+
+  /* Remove higher-specificity tablet borders that boxed individual mobile cards. */
+  .service-card,
+  .service-card:nth-child(2),
+  .service-card:nth-child(n+3),
+  .service-card:last-child {
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 1px solid var(--white-line) !important;
+  }
+  .partner-type,
+  .partner-type:nth-child(2),
+  .partner-type:nth-child(n+3),
+  .partner-type:last-child,
+  .economics article,
+  .economics article:nth-child(2),
+  .economics article:nth-child(n+3),
+  .economics article:last-child {
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 1px solid var(--line) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .network-visual { gap: 8px; padding: 14px; }
+  .network-center { height: auto; width: auto; }
+  .network-node { min-height: 82px; padding: 12px 8px; width: auto; }
 }
