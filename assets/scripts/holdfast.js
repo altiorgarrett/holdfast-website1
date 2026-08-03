@@ -38,7 +38,7 @@
     event.preventDefault();
     const content = one('[data-chat-content]');
     if (!content) return;
-    content.innerHTML = '<div class="chat-confirm"><strong>We have your starting point.</strong><p>This launch preview will connect to a staffed Holdfast inbox before enrollment opens.</p><button type="button" data-chat-restart>Start another note</button></div>';
+    content.innerHTML = '<div class="chat-confirm"><strong>This is a conversation preview.</strong><p>Your note was not sent or stored. A staffed Holdfast contact path will replace this preview before founding enrollment opens.</p><button type="button" data-chat-restart>Return to the preview</button></div>';
     one('[data-chat-restart]')?.addEventListener('click', () => window.location.reload());
   });
 
@@ -66,14 +66,14 @@
       if (partnerSummary) partnerSummary.hidden = !isPartner;
       if (ownerList) ownerList.hidden = isPartner;
       if (partnerList) partnerList.hidden = !isPartner;
-      if (roleKicker) roleKicker.textContent = isPartner ? 'Partner portal' : 'Owner portal';
+      if (roleKicker) roleKicker.textContent = isPartner ? 'Department provider preview' : 'Member portal preview';
       if (roleDescription) roleDescription.textContent = isPartner
-        ? 'Manage member requests, service commitments, reporting, and partnership opportunities.'
-        : 'Access your benefits, service team, renewals, security status, and savings in one place.';
-      if (greeting) greeting.textContent = isPartner ? 'Partner overview' : 'Good morning, Pam';
-      if (company) company.textContent = isPartner ? 'Northstar Payroll' : 'Juniper Row Bakehouse';
-      if (avatar) avatar.textContent = isPartner ? 'NP' : 'PR';
-      if (dashLabel) dashLabel.textContent = isPartner ? 'Partner activity' : 'Your operating desk';
+        ? 'This illustrative view shows member assignments, service commitments, reporting, and group-program opportunities.'
+        : 'This illustrative view shows department programs, negotiated value, provider relationships, renewals, and implementation work.';
+      if (greeting) greeting.textContent = isPartner ? 'Illustrative provider view' : 'Illustrative member view';
+      if (company) company.textContent = isPartner ? 'Example Department Provider' : 'Example Independent Company';
+      if (avatar) avatar.textContent = 'EX';
+      if (dashLabel) dashLabel.textContent = isPartner ? 'Illustrative provider activity' : 'Illustrative shared departments';
       window.history.replaceState({}, '', isPartner ? '/portal/?role=partner' : '/portal/');
     };
     const initialRole = new URLSearchParams(window.location.search).get('role') === 'partner' ? 'partner' : 'owner';
