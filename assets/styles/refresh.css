@@ -48,12 +48,39 @@
 
 .catalog-item { padding: 28px 0; }
 .catalog-item h3 { font-size: 31px; }
-
 .footer-bottom p:last-child { max-width: 520px; }
+
+/* Provider application */
+.provider-hero .hero-aside { background: #fff; }
+.provider-categories { margin-top: 44px; }
+.provider-application { display: grid; gap: 72px; grid-template-columns: .78fr 1.22fr; align-items: start; }
+.provider-application-copy { position: sticky; top: 120px; }
+.provider-application-copy p { max-width: 38ch; }
+.provider-form-shell { background: #fff; border: 1px solid var(--line); box-shadow: 0 24px 70px rgba(9,38,31,.08); padding: 34px; }
+.provider-form { display: grid; gap: 20px; }
+.provider-form label { color: var(--forest); display: grid; font-size: 10px; font-weight: 800; gap: 8px; letter-spacing: .12em; text-transform: uppercase; }
+.provider-form input,
+.provider-form select,
+.provider-form textarea { background: #fbfaf6; border: 1px solid var(--line); border-radius: 0; color: var(--ink); min-height: 50px; padding: 13px 14px; text-transform: none; width: 100%; }
+.provider-form textarea { min-height: 140px; resize: vertical; }
+.provider-form input:focus,
+.provider-form select:focus,
+.provider-form textarea:focus { outline: 2px solid var(--brass-pale); outline-offset: 1px; }
+.field-grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+.form-disclosure { color: var(--muted); font-size: 11px; line-height: 1.5; margin: -5px 0 0; }
+.provider-notice { background: var(--paper); border: 1px solid var(--line); padding: 32px; text-align: center; }
+.provider-notice strong { color: var(--forest); display: block; font-family: var(--display); font-size: 31px; font-weight: 400; margin-bottom: 10px; }
+.provider-notice p { margin: 0 auto 20px; max-width: 46ch; }
+.provider-cta { background: var(--paper-deep); }
+.provider-cta-inner { align-items: center; display: grid; gap: 48px; grid-template-columns: 1fr auto; }
+.provider-cta h2 { margin-bottom: 12px; }
+.provider-cta p { margin-bottom: 0; max-width: 54ch; }
 
 @media (max-width: 1000px) {
   .section { padding: 76px 0; }
   .page-hero { padding: 70px 0 64px; }
+  .provider-application { gap: 42px; grid-template-columns: 1fr; }
+  .provider-application-copy { position: static; }
 }
 
 @media (max-width: 720px) {
@@ -66,4 +93,7 @@
   .hero-aside { padding: 20px; }
   .story-copy { padding-top: 50px; padding-bottom: 50px; }
   .vision-strip { padding: 52px 0; }
+  .field-grid { grid-template-columns: 1fr; }
+  .provider-form-shell { padding: 24px 20px; }
+  .provider-cta-inner { grid-template-columns: 1fr; }
 }
