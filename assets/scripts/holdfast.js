@@ -36,6 +36,10 @@
   chatOpeners.forEach((button) => button.addEventListener('click', () => setChatOpen(true)));
   chatCloser?.addEventListener('click', () => setChatOpen(false));
   all('[data-chat-options] button').forEach((button) => button.addEventListener('click', () => {
+    if (button.hasAttribute('data-provider-route')) {
+      window.location.href = '/providers/#apply';
+      return;
+    }
     all('[data-chat-options] button').forEach((option) => option.classList.remove('selected'));
     button.classList.add('selected');
   }));
@@ -45,6 +49,19 @@
     if (!content) return;
     content.innerHTML = '<div class="chat-confirm"><strong>This is a conversation preview.</strong><p>Your note was not sent or stored. A staffed Holdfast contact path will replace this preview before founding enrollment opens.</p><button type="button" data-chat-restart>Return to the preview</button></div>';
     one('[data-chat-restart]')?.addEventListener('click', () => window.location.reload());
+  });
+
+  const providerForm = one('[data-provider-form]');
+  const providerNotice = one('[data-provider-notice]');
+  const providerReturn = one('[data-provider-return]');
+  providerForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    providerForm.hidden = true;
+    if (providerNotice) providerNotice.hidden = false;
+  });
+  providerReturn?.addEventListener('click', () => {
+    if (providerForm) providerForm.hidden = false;
+    if (providerNotice) providerNotice.hidden = true;
   });
 
   const portalSwitches = all('[data-portal-switch]');
