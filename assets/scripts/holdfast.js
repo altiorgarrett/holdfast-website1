@@ -1,4 +1,9 @@
 (() => {
+  const refreshStyles = document.createElement('link');
+  refreshStyles.rel = 'stylesheet';
+  refreshStyles.href = '/assets/styles/refresh.css';
+  document.head.appendChild(refreshStyles);
+
   const one = (selector) => document.querySelector(selector);
   const all = (selector) => Array.from(document.querySelectorAll(selector));
 
@@ -66,14 +71,14 @@
       if (partnerSummary) partnerSummary.hidden = !isPartner;
       if (ownerList) ownerList.hidden = isPartner;
       if (partnerList) partnerList.hidden = !isPartner;
-      if (roleKicker) roleKicker.textContent = isPartner ? 'Department provider preview' : 'Member portal preview';
+      if (roleKicker) roleKicker.textContent = isPartner ? 'Provider view' : 'Member view';
       if (roleDescription) roleDescription.textContent = isPartner
-        ? 'This illustrative view shows member assignments, service commitments, reporting, and group-program opportunities.'
-        : 'This illustrative view shows department programs, negotiated value, provider relationships, renewals, and implementation work.';
-      if (greeting) greeting.textContent = isPartner ? 'Illustrative provider view' : 'Illustrative member view';
+        ? 'See assigned companies, service commitments, reporting, and group opportunities.'
+        : 'See shared departments, negotiated value, renewals, and open implementation work.';
+      if (greeting) greeting.textContent = isPartner ? 'Provider preview' : 'Member preview';
       if (company) company.textContent = isPartner ? 'Example Department Provider' : 'Example Independent Company';
       if (avatar) avatar.textContent = 'EX';
-      if (dashLabel) dashLabel.textContent = isPartner ? 'Illustrative provider activity' : 'Illustrative shared departments';
+      if (dashLabel) dashLabel.textContent = isPartner ? 'Provider activity' : 'Shared departments';
       window.history.replaceState({}, '', isPartner ? '/portal/?role=partner' : '/portal/');
     };
     const initialRole = new URLSearchParams(window.location.search).get('role') === 'partner' ? 'partner' : 'owner';
